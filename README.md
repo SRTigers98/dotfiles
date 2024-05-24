@@ -6,5 +6,5 @@ Management software: [chezmoi](https://github.com/twpayne/chezmoi)
 
 - [zsh](https://github.com/zsh-users/zsh)
 - [tmux](https://github.com/tmux/tmux)
-- [Starship](https://github.com/starship/starship)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - [yamllint](https://github.com/adrienverge/yamllint)
