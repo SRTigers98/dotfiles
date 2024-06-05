@@ -31,9 +31,13 @@ fpath=($HOME/.zfunc $fpath)
 compinit
 
 # Completion styling
-zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
+zstyle ":completion:*" list-colors '${(s.:.)LS_COLORS}'
 zstyle ":completion:*" menu no
-zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --color $realpath"
+
+# fzf-tab styling
+zstyle ":fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest" fzf-preview 'brew info $word'
+zstyle ":fzf-tab:complete:*:*" fzf-preview 'bat --color=always $realpath 2>/dev/null || eza -la --color=always --icons $realpath'
+zstyle ":fzf-tab:*" fzf-min-height 50
 
 # History
 HISTSIZE=5000
@@ -48,9 +52,19 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# Navigate words with ctrl+arrow keys
+bindkey '^[Oc' forward-word
+bindkey '^[Od' backward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^H' backward-kill-word # delete previous word with ctrl+backspace
+bindkey '^[[Z' undo # Shift+tab undo last action
+
 # Aliases
 alias vim="nvim"
-alias ll="ls -la --color"
+alias ls="eza"
+alias ll="eza --icons -la"
+alias cat="bat"
 alias rm="rm -i"
 alias cd..="cd .."
 alias docker="podman"
@@ -59,6 +73,14 @@ alias docker="podman"
 export EDITOR="nvim"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 export DOCKER_HOST="unix://$(podman info -f "{{.Host.RemoteSocket.Path}}")"
+
+# Highlight man pages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+
+# Highlight --help messages
+alias -g -- -h="-h 2>&1 | bat --language=help --style=plain"
+alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
 
 # Local configuration
 if [ -e "${HOME}/.zsh_local" ]; then
