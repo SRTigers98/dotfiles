@@ -1,0 +1,21 @@
+theme "nord"
+
+copy_command "xclip -selection clipboard"
+
+keybinds {
+  normal {
+    bind "Alt v" {
+      NewPane "Right";
+    }
+    bind "Alt b" {
+      NewPane "Down";
+    }
+
+    bind "Alt <" {
+      GoToNextTab;
+    }
+    bind "Alt >" {
+      GoToPreviousTab;
+    }
+  }
+}
