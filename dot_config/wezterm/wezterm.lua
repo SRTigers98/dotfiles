@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
@@ -11,5 +12,11 @@ config.window_decorations = "RESIZE"
 
 -- Other
 config.audible_bell = "Disabled"
+
+-- Startup
+wezterm.on("gui-startup", function(cmd)
+	local _, _, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+end)
 
 return config
