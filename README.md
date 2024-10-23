@@ -9,6 +9,7 @@ Management software: [chezmoi](https://github.com/twpayne/chezmoi)
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - [yamllint](https://github.com/adrienverge/yamllint)
 - [Zellij](https://github.com/zellij-org/zellij)
+- [Wez's Terminal](https://github.com/wez/wezterm)
 
 ## Required Software
 
@@ -21,3 +22,4 @@ The following tools are used in the `.zshrc` file:
 - [fd](https://github.com/sharkdp/fd)
 - [podman](https://github.com/containers/podman) (optional)
 - [fzf](https://github.com/junegunn/fzf)
+- [thefuck](https://github.com/nvbn/thefuck)
