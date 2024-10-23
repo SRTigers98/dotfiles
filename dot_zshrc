@@ -37,11 +37,6 @@ compinit
 zstyle ":completion:*" list-colors '${(s.:.)LS_COLORS}'
 zstyle ":completion:*" menu no
 
-# fzf-tab styling
-zstyle ":fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest" fzf-preview 'brew info $word'
-zstyle ":fzf-tab:complete:*:*" fzf-preview 'bat --color=always $realpath 2>/dev/null || eza -la --color=always --icons $realpath'
-zstyle ":fzf-tab:*" fzf-min-height 50
-
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -71,12 +66,14 @@ alias cat="bat"
 alias find="fd"
 alias rm="rm -i"
 alias cd..="cd .."
-# cd to git repository root
-alias gr='cd "$(git rev-parse --show-toplevel)"'
+alias gr='cd "$(git rev-parse --show-toplevel)"' # cd to git repository root
 
 # Environment
 export EDITOR="nvim"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+# Configure fzf
+source "${HOME}/.config/fzf/config.sh"
 
 # Configure podman
 if type "podman" &>/dev/null; then
@@ -96,6 +93,3 @@ alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
 if [ -e "${HOME}/.zsh_local" ]; then
   source "${HOME}/.zsh_local"
 fi
-
-# Shell integrations
-eval "$(fzf --zsh)"
