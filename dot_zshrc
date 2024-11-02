@@ -92,6 +92,9 @@ export MANROFFOPT="-c"
 alias -g -- -h="-h 2>&1 | bat --language=help --style=plain"
 alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
 
+# Additional scripts
+export PATH="${PATH}:${HOME}/.scripts"
+
 # Local configuration
 if [ -e "${HOME}/.zsh_local" ]; then
   source "${HOME}/.zsh_local"
