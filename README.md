@@ -74,5 +74,4 @@ To start a new ZelliJ session, run the following command:
 
 ```sh
 zellij attach --create default
-`
 ```
