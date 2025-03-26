@@ -1,0 +1,7 @@
+# Appearance
+theme = nord
+font-family = FiraCode Nerd Font
+font-size = 13.0
+
+# Window
+maximize = true
