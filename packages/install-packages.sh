@@ -1,33 +1,10 @@
 #!/bin/bash
 
+set -e
+cd "$(dirname "$0")"
+
 function install_arch() {
-  packages=(
-    "zsh"
-    "git"
-    "chezmoi"
-    "tmux"
-    "fzf"
-    "neovim"
-    "ttf-firacode-nerd"
-    "ripgrep"
-    "go"
-    "nodejs-lts-iron"
-    "npm"
-    "rustup"
-    "jdk21-openjdk"
-    "podman"
-    "podman-compose"
-    "lazygit"
-    "pass"
-    "pinentry"
-    "bat"
-    "eza"
-    "fd"
-    "zellij"
-    "wezterm"
-    "thefuck"
-    "entr"
-  )
+  readarray -t packages <./arch-packages
 
   required_packages=()
   for pkg in "${packages[@]}"; do
@@ -45,32 +22,7 @@ function install_arch() {
 }
 
 function install_brew() {
-  packages=(
-    "zsh"
-    "git"
-    "chezmoi"
-    "tmux"
-    "fzf"
-    "neovim"
-    "font-fira-code-nerd-font"
-    "ripgrep"
-    "go"
-    "node"
-    "rustup-init"
-    "openjdk"
-    "podman"
-    "podman-compose"
-    "lazygit"
-    "pass"
-    "pinentry"
-    "bat"
-    "eza"
-    "fd"
-    "zellij"
-    "wezterm"
-    "thefuck"
-    "entr"
-  )
+  readarray -t packages <./brew-packages
 
   required_packages=()
   for pkg in "${packages[@]}"; do
