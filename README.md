@@ -1,14 +1,18 @@
 # dotfiles
 
-Management software: [stow](https://www.gnu.org/software/stow/)
+## Prerequisites
+
+1. Management Software: [stow](https://www.gnu.org/software/stow/)
+2. Taskfile CLI: [go-task](https://github.com/go-task/task)
 
 ## Installation
 
 Below are the instructions for the complete shell setup along with the dotfiles.
 
 Before that, you need to install stow and apply the dotfiles.
-For convenience you can use the [tasks](https://github.com/go-task/task)
-defined in the `Taskfile`.
+For convenience you can use the tasks defined in the `Taskfile`.
+
+To install all configuration files with stow run:
 
 ```bash
 task stow
@@ -29,7 +33,7 @@ Supported package managers are
 
 ### Emulator Setup
 
-The recommended (and not yet configured) terminal emulator is [Ghostty](https://github.com/ghostty-org/ghostty).
+The recommended and configured terminal emulator is [Ghostty](https://github.com/ghostty-org/ghostty).
 Ghostty is installed along with the packages and is configured in the dotfiles.
 
 ### NeoVim Configuration
