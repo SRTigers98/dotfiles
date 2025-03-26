@@ -20,10 +20,10 @@ task stow
 
 ### Packages
 
-To install all required packages, run the `install-packages` script:
+To install all required packages, run the `install-packages` script as root:
 
 ```sh
-task install-packages
+sudo task install-packages
 ```
 
 Supported package managers are
