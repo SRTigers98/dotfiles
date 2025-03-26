@@ -4,8 +4,11 @@ version: "3"
 
 tasks:
   stow:
-    cmds:
-      - echo "To be implemented"
+    deps:
+      - stow-zsh
+
+  stow-zsh:
+    cmd: stow -t "$HOME" -R zsh
 
   setup:
     cmds:
