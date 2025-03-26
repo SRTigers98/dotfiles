@@ -1,0 +1,15 @@
+# https://taskfile.dev
+---
+version: "3"
+
+tasks:
+  stow:
+    cmds:
+      - echo "To be implemented"
+
+  setup:
+    cmds:
+      - ./setup/install-packages.sh
+    preconditions:
+      - sh: test "$(whoami)" = "root"
+        msg: Task 'setup' must be run as root!
