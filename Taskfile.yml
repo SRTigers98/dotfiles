@@ -6,9 +6,17 @@ tasks:
   stow:
     deps:
       - stow-zsh
+      - stow-shell
 
   stow-zsh:
     cmd: stow -t "$HOME" -R zsh
+
+  stow-shell:
+    vars:
+      DIR: "${HOME}/.config"
+    cmds:
+      - mkdir -p "{{.DIR}}"
+      - stow -t "{{.DIR}}" -R shell
 
   setup:
     cmds:
