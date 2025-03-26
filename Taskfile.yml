@@ -6,17 +6,24 @@ tasks:
   stow:
     deps:
       - stow-zsh
-      - stow-shell
+      - stow-config
 
   stow-zsh:
     cmd: stow -t "$HOME" -R zsh
 
-  stow-shell:
+  stow-config:
     vars:
-      DIR: "${HOME}/.config"
+      CONFIG_DIR: "${HOME}/.config"
+      STOW_DIRS:
+        sh: for folder in config/*; do basename "$folder"; done
     cmds:
-      - mkdir -p "{{.DIR}}"
-      - stow -t "{{.DIR}}" -R shell
+      - mkdir -p "{{.CONFIG_DIR}}"
+      - for:
+          var: STOW_DIRS
+        cmd: mkdir -p "{{.CONFIG_DIR}}/{{.ITEM}}"
+      - for:
+          var: STOW_DIRS
+        cmd: stow -d config -t "{{.CONFIG_DIR}}/{{.ITEM}}" -R {{.ITEM}}
 
   install-packages:
     cmds:
