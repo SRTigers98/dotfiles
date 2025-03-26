@@ -18,9 +18,9 @@ tasks:
       - mkdir -p "{{.DIR}}"
       - stow -t "{{.DIR}}" -R shell
 
-  setup:
+  install-packages:
     cmds:
-      - ./setup/install-packages.sh
+      - ./packages/install-packages.sh
     preconditions:
       - sh: test "$(whoami)" = "root"
         msg: Task 'setup' must be run as root!

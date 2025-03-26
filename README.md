@@ -1,24 +1,17 @@
 # dotfiles
 
-Management software: [chezmoi](https://github.com/twpayne/chezmoi)
-
-## Configured Applications
-
-- [zsh](https://github.com/zsh-users/zsh)
-- [tmux](https://github.com/tmux/tmux)
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
-- [yamllint](https://github.com/adrienverge/yamllint)
-- [Zellij](https://github.com/zellij-org/zellij)
-- [Wez's Terminal](https://github.com/wez/wezterm)
+Management software: [stow](https://www.gnu.org/software/stow/)
 
 ## Installation
 
 Below are the instructions for the complete shell setup along with the dotfiles.
 
-Before that, you need to install chezmoi and apply the dotfiles.
+Before that, you need to install stow and apply the dotfiles.
+For convenience you can use the [tasks](https://github.com/go-task/task)
+defined in the `Taskfile`.
 
 ```bash
-chezmoi init --apply https://github.com/srtigers98/dotfiles.git
+task stow
 ```
 
 ### Packages
@@ -26,7 +19,7 @@ chezmoi init --apply https://github.com/srtigers98/dotfiles.git
 To install all required packages, run the `install-packages` script:
 
 ```sh
-install-packages
+task install-packages
 ```
 
 Supported package managers are
@@ -34,13 +27,10 @@ Supported package managers are
 - Pacman
 - Homebrew
 
-The script should be available globally via `.zshrc`.
-If not, you can find it in the `.scripts` directory.
-
 ### Emulator Setup
 
-The recommended and configured terminal emulator is [wezterm](https://wezfurlong.org/wezterm/index.html).
-Wezterm is installed along with the packages and is configured in the dotfiles.
+The recommended (and not yet configured) terminal emulator is [Ghostty](https://github.com/ghostty-org/ghostty).
+Ghostty is installed along with the packages and is configured in the dotfiles.
 
 ### NeoVim Configuration
 
@@ -48,10 +38,7 @@ You can find the NeoVim configuration along with the documentation [here](https:
 
 ### Terminal Multiplexer
 
-You can use either [tmux](https://github.com/tmux/tmux)
-or [ZelliJ](https://github.com/zellij-org/zellij) as terminal multiplexer.
-
-#### tmux (recommended)
+The recommended and configured terminal multiplexer is [tmux](https://github.com/tmux/tmux).
 
 To start a new tmux session, run the following command:
 
@@ -67,11 +54,3 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 Then you can install all plugins by pressing `Ctrl+a+I` while tmux is running.
-
-#### Zellij
-
-To start a new ZelliJ session, run the following command:
-
-```sh
-zellij attach --create default
-```
