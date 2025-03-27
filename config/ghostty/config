@@ -5,3 +5,10 @@ font-size = 13.0
 
 # Window
 maximize = true
+quit-after-last-window-closed = true
+
+# MacOS
+macos-titlebar-style = hidden
+
+# Keybindings
+keybind = global:f12=toggle_quick_terminal
