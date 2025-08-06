@@ -10,7 +10,6 @@ ripgrep
 go
 nodejs-lts-iron
 npm
-rustup
 jdk21-openjdk
 podman
 podman-compose
@@ -21,3 +20,4 @@ bat
 eza
 fd
 entr
+sd
