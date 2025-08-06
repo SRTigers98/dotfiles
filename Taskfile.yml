@@ -24,10 +24,3 @@ tasks:
       - for:
           var: STOW_DIRS
         cmd: stow -d config -t "{{.CONFIG_DIR}}/{{.ITEM}}" -R {{.ITEM}}
-
-  install-packages:
-    cmds:
-      - ./packages/install-packages.sh
-    preconditions:
-      - sh: test "$(whoami)" = "root"
-        msg: Task 'setup' must be run as root!

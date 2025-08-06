@@ -1,7 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 cd "$(dirname "$0")"
+
+function check_root() {
+  if [[ "$(whoami)" != "root" ]]; then
+    echo "Script has to be run as root!"
+    exit 1
+  fi
+}
+
+function check_non_root() {
+  if [[ "$(whoami)" == "root" ]]; then
+    echo "Script mustn't be run as root!"
+    exit 1
+  fi
+}
 
 function install_arch() {
   readarray -t packages <./arch-packages
@@ -40,9 +54,11 @@ function install_brew() {
 }
 
 if command -v "pacman" &>/dev/null; then
+  check_root
   echo "Using pacman to install packages"
   install_arch
 elif command -v "brew" &>/dev/null; then
+  check_non_root
   echo "Using homebrew to install packages"
   install_brew
 else

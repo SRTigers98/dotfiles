@@ -81,9 +81,6 @@ if type "podman" &>/dev/null; then
   export DOCKER_HOST="unix://$(podman info -f "{{.Host.RemoteSocket.Path}}")"
 fi
 
-# Configure thefuck
-eval $(thefuck --alias fk)
-
 # Highlight man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"

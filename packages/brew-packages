@@ -1,4 +1,5 @@
 zsh
+bash
 git
 go-task/tap/go-task
 stow
@@ -19,7 +20,4 @@ pinentry
 bat
 eza
 fd
-zellij
-wezterm
-thefuck
 entr
