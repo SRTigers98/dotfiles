@@ -67,6 +67,8 @@ alias find="fd"
 alias rm="rm -i"
 alias cd..="cd .."
 alias gr='cd "$(git rev-parse --show-toplevel)"' # cd to git repository root
+alias gg="lazygit"
+alias k="kubectl"
 
 # Environment
 export EDITOR="nvim"
