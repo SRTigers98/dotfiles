@@ -58,6 +58,11 @@ bindkey '^[[1;5C' forward-word
 bindkey '^H' backward-kill-word # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo # Shift+tab undo last action
 
+# Edit current command in editor
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line # Ctrl-X+Ctrl-E
+
 # Aliases
 alias vim="nvim"
 alias ls="eza"
