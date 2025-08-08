@@ -75,6 +75,12 @@ alias gr='cd "$(git rev-parse --show-toplevel)"' # cd to git repository root
 alias gg="lazygit"
 alias k="kubectl"
 
+# Copy and Paste
+if command -v xclip &>/dev/null; then
+  alias copy="xclip -selection clipboard"
+  alias paste="xclip -selection clipboard -o"
+fi
+
 # Environment
 export EDITOR="nvim"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
