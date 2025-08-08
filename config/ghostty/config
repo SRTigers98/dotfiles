@@ -11,4 +11,31 @@ quit-after-last-window-closed = true
 macos-titlebar-style = hidden
 
 # Keybindings
+
+## Global
 keybind = global:f12=toggle_quick_terminal
+
+## Window
+keybind = ctrl+a>n=new_window
+keybind = ctrl+a>shift+x=close_window
+
+## Tab
+keybind = ctrl+a>c=new_tab
+keybind = shift+right=next_tab
+keybind = shift+left=previous_tab
+keybind = ctrl+a>0=goto_tab:0
+keybind = ctrl+a>1=goto_tab:1
+keybind = ctrl+a>2=goto_tab:2
+keybind = ctrl+a>x=close_tab
+
+## Split
+keybind = ctrl+a>v=new_split:right
+keybind = ctrl+a>b=new_split:down
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+a>h=resize_split:left,50
+keybind = ctrl+a>l=resize_split:right,50
+keybind = ctrl+a>k=resize_split:up,50
+keybind = ctrl+a>j=resize_split:down,50
