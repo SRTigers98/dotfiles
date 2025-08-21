@@ -19,6 +19,9 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ ! -f ~/.p10k_ext.zsh ]] || source ~/.p10k_ext.zsh
 
+# ls_colors theme
+source "${HOME}/.config/dircolors/nord"
+
 # zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -34,7 +37,7 @@ autoload -U compinit
 compinit
 
 # Completion styling
-zstyle ":completion:*" list-colors '${(s.:.)LS_COLORS}'
+zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 zstyle ":completion:*" menu no
 
 # History
