@@ -24,3 +24,18 @@ tasks:
       - for:
           var: STOW_DIRS
         cmd: stow -d config -t "{{.CONFIG_DIR}}/{{.ITEM}}" -R {{.ITEM}}
+
+  stow-hyprland:
+    vars:
+      CONFIG_DIR: "${HOME}/.config"
+      STOW_DIRS:
+        - hyde
+        - hypr
+    cmds:
+      - mkdir -p "{{.CONFIG_DIR}}"
+      - for:
+          var: STOW_DIRS
+        cmd: mkdir -p "{{.CONFIG_DIR}}/{{.ITEM}}"
+      - for:
+          var: STOW_DIRS
+        cmd: stow -d hyprland -t "{{.CONFIG_DIR}}/{{.ITEM}}" -R {{.ITEM}}
