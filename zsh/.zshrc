@@ -72,6 +72,7 @@ alias ls="eza"
 alias ll="eza --icons -la"
 alias cat="bat"
 alias find="fd"
+alias grep="rg"
 alias rm="rm -i"
 alias cd..="cd .."
 alias gr='cd "$(git rev-parse --show-toplevel)"' # cd to git repository root
