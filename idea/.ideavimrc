@@ -1,0 +1,63 @@
+" core/options
+" Line numbers
+set relativenumber          " show relative line numbers
+set number                  " show absolute line number on cursor line (when relative number is on)
+
+" Line wrapping
+set nowrap                  " disable line wrapping
+
+" Line styling
+set list                    " show whitespace characters
+
+" Search settings
+set ignorecase              " ignore case when searching
+set smartcase               " if search contains uppercase letters, it becomes case-sensitive
+
+" Cursor line
+set cursorline              " highlight the current cursor line
+
+" Clipboard
+set clipboard+=unnamedplus  " use system clipboard as default register
+
+" Highlighting
+set hlsearch                " highlight matches with the last search pattern
+
+" core/keymaps
+" Set leader key to space
+let mapleader = " "
+
+" Use jk to exit insert mode
+imap jk <ESC>
+
+" Clear search highlights
+nmap <ESC> :nohl<CR>
+
+" Page navigation
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+
+" Tab management
+nmap <Tab> <Action>(NextTab)
+nmap <S-Tab> <Action>(PreviousTab)
+
+" plugins
+Plug 'tpope/vim-surround'
+
+Plug 'tpope/vim-commentary'
+
+Plug 'vim-scripts/ReplaceWithRegister'
+" substitute with motion
+nmap s gr
+" substitute line
+nmap ss grr
+" substitute to line end
+nmap S gr$
+" substitute in visual mode
+xmap s gr
+
+" file explorer
+Plug 'preservim/nerdtree'
+
+" ataman integration
+nnoremap <Space> :action LeaderAction<cr>
+vnoremap <Space> :action LeaderAction<cr>

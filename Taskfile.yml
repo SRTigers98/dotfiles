@@ -39,3 +39,6 @@ tasks:
       - for:
           var: STOW_DIRS
         cmd: stow -d hyprland -t "{{.CONFIG_DIR}}/{{.ITEM}}" -R {{.ITEM}}
+
+  stow-idea:
+    cmd: stow -t "$HOME" idea
