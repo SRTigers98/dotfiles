@@ -22,3 +22,6 @@ font_size = 12
 
 [rofi]
 scale = 12
+
+[wallpaper]
+backend = "awww"
