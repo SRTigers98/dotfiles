@@ -26,7 +26,7 @@ _fzf_compgen_dir() {
 
 # fzf-tab styling
 zstyle ":fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest" fzf-preview 'brew info $word'
-zstyle ":fzf-tab:complete:*:*" fzf-preview 'bat --color=always $realpath 2>/dev/null || eza -la --color=always --icons $realpath'
+zstyle ":fzf-tab:complete:*:*" fzf-preview 'bat --color=always $realpath 2>/dev/null || eza -la --color=always --icons=always $realpath'
 zstyle ":fzf-tab:*" fzf-min-height 50
 
 # Shell integrations
