@@ -1,0 +1,140 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$fill\
+$cmd_duration\
+$kubernetes\
+$line_break\
+$character\
+"""
+palette = "nord"
+
+[profiles]
+transient = """
+$character\
+"""
+
+[palettes.nord]
+blue = '#5e81ac'
+cyan = '#81a1c1'
+red = '#bf616a'
+orange = '#d08770'
+yellow = '#ebcb8b'
+green = '#a3be8c'
+purple = '#b48ead'
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+style = "yellow"
+
+[directory]
+truncation_length = 5
+truncation_symbol = "../"
+truncate_to_repo = false
+read_only = " 󰌾"
+style = "blue"
+repo_root_style = "cyan bold"
+substitutions = [
+  { from = "^(.+)", to = " $1", regex = true },
+  { from = "^ ~$", to = "󰋜 ~", regex = true },
+]
+
+[git_branch]
+symbol = " "
+style = "green bold"
+
+[git_commit]
+tag_symbol = '  '
+tag_disabled = false
+
+[git_state]
+style = "purple bold"
+
+[git_status]
+conflicted = "=${count}"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "\\$${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+style = "yellow"
+
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+format = '[$symbol$context( \($namespace\))]($style)'
+
+[os]
+disabled = false
+
+[os.symbols]
+AIX = " "
+AlmaLinux = " "
+Alpaquita = " "
+Alpine = " "
+ALTLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+Bluefin = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = " "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = " "
+InstantOS = " "
+Ios = "󰀷 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = " "
+OpenCloudOS = " "
+openEuler = " "
+openSUSE = " "
+OracleLinux = "󰺡 "
+PikaOS = " "
+Pop = " "
+Raspbian = " "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+Redox = "󰀘 "
+RockyLinux = " "
+Solus = " "
+SUSE = " "
+Ubuntu = " "
+Ultramarine = " "
+Unknown = " "
+Uos = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "

@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Zinit plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "${ZINIT_HOME}" ]; then
@@ -14,10 +7,30 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # zsh theme
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[[ ! -f ~/.p10k_ext.zsh ]] || source ~/.p10k_ext.zsh
+export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
+eval "$(starship init zsh)"
+
+# transient prompt setup
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd transient-prompt-precmd
+
+TRANSIENT_PROMPT="${PROMPT// prompt / prompt --profile transient }"
+
+function transient-prompt-precmd {
+    # Fix ctrl+c behavior
+    TRAPINT() { transient-prompt; return $(( 128 + $1 )) }
+
+    # Save transient prompt
+    SAVED_PROMPT="$(eval "printf '%s' \"${TRANSIENT_PROMPT}\"")"
+}
+
+autoload -Uz add-zle-hook-widget
+add-zle-hook-widget zle-line-finish transient-prompt
+
+function transient-prompt() {
+    # Use saved transient prompt
+    PROMPT="$SAVED_PROMPT" zle .reset-prompt
+}
 
 # ls_colors theme
 source "${HOME}/.config/dircolors/nord"

@@ -1,5 +1,6 @@
 zsh
 git
+starship
 go-task
 stow
 tmux
